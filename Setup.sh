@@ -20,7 +20,8 @@ sudo apt-get -qq update && sudo apt-get -qq upgrade -y
 sudo apt-get install -y nala
 
 # Other packages
-sudo nala install -y --simple unzip net-tools neofetch starship kitty librewolf htop autojump gimp code
+sudo nala install -y --simple unzip net-tools neofetch kitty librewolf htop autojump gimp code
+curl -sS https://starship.rs/install.sh | sh
 
 #: Download font
 FONT_LINK=https://github.com/ryanoasis/nerd-fonts/releases/download/latest/JetBrainsMono.zip
