@@ -46,6 +46,7 @@ sudo chmod +x ~/.config/kitty/KeyBindingsKitty
 
 # Starship
 mv starfish.toml ~/.config/
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
 # Cleanup
 sudo DEBIAN_FRONTEND=dialog
