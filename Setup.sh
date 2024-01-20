@@ -40,6 +40,13 @@ wget https://starship.rs/install.sh
 sudo chmod +x install.sh
 $SCRIPT_DIR/install.sh -y
 
+# .net
+wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+chmod +x ./dotnet-install.sh
+./dotnet-install.sh --version latest
+./dotnet-install.sh --channel 7.0
+./dotnet-install.sh --channel 6.0
+
 
 #: Download font
 # https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip 
