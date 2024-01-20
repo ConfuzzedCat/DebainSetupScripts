@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Path to your kitty configuration file
+CONFIG_FILE="$HOME/.config/kitty/kitty.conf"
+
+# Extract lines starting with "map" from the config file
+CUSTOM_KEYBINDS=$(grep '^map' "$CONFIG_FILE")
+CUSTOM_KEYBINDS=${CUSTOM_KEYBINDS//map /}
+# Display keybinds
+echo "Custom Kitty Key Bindings:"
+echo ""
+echo "$CUSTOM_KEYBINDS"

@@ -1,0 +1,199 @@
+# Color Theme
+# 1  - #E574BC
+# 2  - #EA84C9
+# 3  - #EF94D5
+# 4  - #F9B4ED
+# 5  - #EABAF6
+# 6  - #DABFFF
+# 7  - #C4C7FF
+# 8  - #ADCFFF
+# 9  - #96D7FF
+# 10 - #7FDEFF
+
+format = """
+[░▒▓](#E574BC)\
+[ 󰄛$sudo ](bg:#E574BC fg:#090c0c)\
+[](bg:#EA84C9 fg:#E574BC)\
+$directory\
+[](fg:#EA84C9 bg:#EF94D5)\
+$git_branch\
+$git_status\
+[](fg:#EF94D5 bg:#F9B4ED)\
+$nodejs\
+$rust\
+$golang\
+$php\
+$dotnet\
+$c\
+$python\
+$java\
+[](fg:#F9B4ED bg:#EABAF6)\
+$time\
+[](fg:#EABAF6 bg:#DABFFF)\
+$memory_usage\
+[](fg:#DABFFF)\
+\n$shell$battery$character"""
+
+[directory]
+style = "fg:#e3e5e5 bg:#EA84C9"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:#EF94D5"
+format = '[[ $symbol $branch ](fg:#EA84C9 bg:#EF94D5)]($style)'
+
+[git_status]
+style = "bg:#EF94D5"
+format = '[[($all_status$ahead_behind )](fg:#EA84C9 bg:#EF94D5)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#F9B4ED"
+format = '[[ $symbol ($version) ](fg:#EA84C9 bg:#F9B4ED)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#F9B4ED"
+format = '[[ $symbol ($version) ](fg:#EA84C9 bg:#F9B4ED)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#F9B4ED"
+format = '[[ $symbol ($version) ](fg:#EA84C9 bg:#F9B4ED)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#F9B4ED"
+format = '[[ $symbol ($version) ](fg:#EA84C9 bg:#F9B4ED)]($style)'
+
+[dotnet]
+symbol = "󰪮"
+style = "bg:#F9B4ED"
+format = '[[ $symbol ($version) ](fg:#EA84C9 bg:#F9B4ED)]($style)'
+
+[c]
+symbol = ""
+style = "bg:#F9B4ED"
+format = '[[ $symbol ($version) ](fg:#EA84C9 bg:#F9B4ED)]($style)'
+
+[python]
+symbol = ""
+style = "bg:#F9B4ED"
+format = '[[ $symbol ($version) ](fg:#EA84C9 bg:#F9B4ED)]($style)'
+
+[java]
+symbol = ""
+style = "bg:#F9B4ED"
+format = '[[ $symbol ($version) ](fg:#EA84C9 bg:#F9B4ED)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#EABAF6"
+format = '[[  $time ](fg:#E574BC bg:#EABAF6)]($style)'
+
+[memory_usage]
+disabled = false
+threshold = -1
+style = "bg:#DABFFF"
+format = '[[ 󰍛 ${ram} ](fg:#090c0c bg:#DABFFF)]($style)'
+
+[character]
+success_symbol = '[](bold fg:#7FDEFF)'
+error_symbol = '[](bold red)'
+
+[sudo]
+format = '[$symbol]($style)'
+style = "bold bg:#E574BC fg:#090c0c"
+symbol = ''
+disabled = false
+
+[shell]
+disabled = false
+style = "bold fg:#96D7FF"
+bash_indicator = ''
+fish_indicator = '󰈺'
+zsh_indicator = ''
+powershell_indicator = ''
+cmd_indicator = ''
+unknown_indicator = ''
+
+# battery
+[battery]
+full_symbol = '󰁹'
+
+[[battery.display]]
+threshold = 5
+style = 'fg:#FF0760'
+charging_symbol = '󰢜'
+discharging_symbol = '󰂎'
+
+[[battery.display]]
+threshold = 10
+style = 'fg:#FE0760'
+charging_symbol = '󰢜'
+discharging_symbol = '󰁺'
+
+[[battery.display]]
+threshold = 20
+style = 'fg:#FE0760'
+charging_symbol = '󰂆'
+discharging_symbol = '󰁻'
+
+[[battery.display]]
+threshold = 30
+style = 'fg:#FF9326'
+charging_symbol = '󰂇'
+discharging_symbol = '󰁼'
+
+[[battery.display]]
+threshold = 40
+style = 'fg:#FF9326'
+charging_symbol = '󰂈'
+discharging_symbol = '󰁽'
+
+[[battery.display]]
+threshold = 50
+style = 'fg:#FDC717'
+charging_symbol = '󰢝'
+discharging_symbol = '󰁾'
+
+[[battery.display]]
+threshold = 60
+style = 'fg:#FDC717'
+charging_symbol = '󰂉'
+discharging_symbol = '󰁿'
+
+[[battery.display]]
+threshold = 70
+style = 'fg:#B9E855'
+charging_symbol = '󰢞'
+discharging_symbol = '󰂀'
+
+[[battery.display]]
+threshold = 80
+style = 'fg:#B9E855'
+charging_symbol = '󰂊'
+discharging_symbol = '󰂁'
+
+[[battery.display]]
+threshold = 90
+style = 'fg:#5AF8AB'
+charging_symbol = '󰂋'
+discharging_symbol = '󰂂'
+
+[[battery.display]]
+threshold = 100
+style = 'fg:#5AF8AB'
+charging_symbol = '󰂅'
+discharging_symbol = '󰁹'
