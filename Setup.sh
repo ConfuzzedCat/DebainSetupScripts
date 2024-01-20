@@ -1,12 +1,14 @@
 #!/bin/bash
+# Setting up variables needed
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+USER_HOME=$(getent passwd ${SUDO_USER:-$USER} | cut -d: -f6)
+
 # Checking if there is sudo permission
 if [[ $EUID > 0 ]]
   then echo "Please run as root"
   exit
 fi
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
-USER_HOME=$(getent passwd $SUDO_USER | cut -d: -f6)
-
+	
 
 #: Installing programs
 # Updating all packages
@@ -41,11 +43,11 @@ sudo chmod +x install.sh
 $SCRIPT_DIR/install.sh -y
 
 # .net
-wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+wget https://dot.net/v1/dotnet-install.sh -O $SCRIPT_DIR/dotnet-install.sh
 chmod +x ./dotnet-install.sh
-./dotnet-install.sh --version latest
-./dotnet-install.sh --channel 7.0
-./dotnet-install.sh --channel 6.0
+$SCRIPT_DIR/dotnet-install.sh --version latest
+$SCRIPT_DIR/dotnet-install.sh --channel 7.0
+$SCRIPT_DIR/dotnet-install.sh --channel 6.0
 
 
 #: Download font
@@ -80,6 +82,11 @@ git config --global init.defaultBranch main
 git config --global user.name "ConfuzzedCat"
 git config --global user.email confuzzedcat@gmail.com
 
+# Privacy stuff
+sudo chmod +x $SCRIPT_DIR/privacy-script.sh
+$SCRIPT_DIR/privacy-script.sh
+
 # Cleanup
 sudo DEBIAN_FRONTEND=dialog
 rm $SCRIPT_DIR/install.sh
+rm $SCRIPT_DIR/dotnet-install.sh
